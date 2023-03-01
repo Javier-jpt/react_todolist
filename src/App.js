@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { Title } from "./components/Title";
 import { Todoinput } from "./components/Todoinput";
 import { Todolist } from "./components/Todolist";
+import background from "./assets/img/todobg.jpg"
 
 import './App.css';
 
+      let stored = JSON.parse(localStorage.getItem("todo"))
+
 function App() {
 
-  const [todos, setTodos] = useState([])
-
+    const [todos, setTodos] = useState(stored ? stored : [])
     const [activeFilter, setActiveFilter] = useState('all')
     const [filteredTodos, setFilteredTodos] = useState(todos)
 
@@ -60,6 +62,10 @@ function App() {
     }
 
     useEffect(() => {
+      localStorage.setItem("todo", JSON.stringify(todos))
+  }, [todos])
+
+    useEffect(() => {
       if(activeFilter === 'all') {
         setFilteredTodos(todos)
       } else if (activeFilter === 'active') {
@@ -73,7 +79,11 @@ function App() {
     },[activeFilter, todos])
 
   return (
-    <div className="bg-cyan-200 min-h-screen h-full font-inter text-green-100 flex items-center justify-center py-20 px-5">
+    <div style={{backgroundImage: `url(${background})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover"
+      }} 
+      className="bg-cyan-200 min-h-screen h-full font-inter text-black flex items-center justify-center py-20 px-5">
       <div className="container flex flex-col max-w-xl">
         <Title />
         <Todoinput addTodo={addTodo} />

@@ -17,7 +17,7 @@ const Todoinput = ({ addTodo }) => {
             </div>
             <input 
                 type="text" 
-                className="focus:shadow-lg font-inter focus:shadow-green-400 pl-12 w-full py-4 bg-gray-300 rounded-xl outline-none transition-all duration-300 ease-in-out"
+                className="focus:shadow-lg font-inter focus:shadow-black pl-12 w-full py-4 bg-yellow-300 rounded-xl outline-none transition-all duration-300 ease-in-out"
                 placeholder="What's next..."
                 value={title}
                 onChange={e => setTitle(e.target.value)}

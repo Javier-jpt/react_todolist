@@ -1,9 +1,10 @@
 import { Todofilters } from "../Todofilters/Todofilters"
 import { Todo } from "../Todo/Todo"
 
+
 const Todolist = ({ todos, handleSetComplete, handleClearComplete, handleDelete, activeFilter, showAllTodos, showActiveTodos, showCompletedTodos  }) => {
     return (
-        <div className="flex flex-col mt-7 rounded-lg overflow-hidden shadow-2xl bg-cyan-200">
+        <div className="flex flex-col mt-7 rounded-lg overflow-hidden shadow-2xl">
             {todos.map(todo => {
                 return (
                     <Todo key={todo.id}

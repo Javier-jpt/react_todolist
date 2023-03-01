@@ -3,15 +3,15 @@ const Todo = ({ todo, handleSetComplete, handleDelete }) => {
     const { id, title, completed} = todo
 
     return (
-        <div className="flex items-center justify-between p-4 bg-gray-300 border-b border-solid border-gray-600 my-3 rounded-2xl">
+        <div className="flex items-center justify-between p-4 bg-yellow-300 border-b border-solid border-black my-3 rounded-2xl">
             <div className="flex items-center">
                 {
                     completed ? (
-                        <div onClick={() => handleSetComplete(id)} className="bg-green-500 p-1 rounded-full cursor-pointer">
+                        <div onClick={() => handleSetComplete(id)} className="bg-black p-1 rounded-full cursor-pointer">
                             <img className="h-4 w-4" src='/check-icon.svg' alt='Check Icon' />
                         </div>
                     ) : (
-                       <span onClick={() => handleSetComplete(id)} className="border-solid border border-gray-500 rounded-full p-3 cursor-pointer"></span>    
+                       <span onClick={() => handleSetComplete(id)} className="border-solid border border-black rounded-full p-3 cursor-pointer"></span>    
                     )
                 }
                 <p className={"pl-4 " + (completed && "line-through")}>
